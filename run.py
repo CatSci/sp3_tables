@@ -185,8 +185,9 @@ def create_sp3_table():
           final_df = sp3_table(df = SP3, rev = rev)
           sp3_table_df, chromotogram_df = chromotogram_data(final_df)
           bubble_df = bubble_plot(final_df)
-
-     return sp3_table_df.to_csv().encode('utf-8'), chromotogram_df, bubble_df
+    
+    ## final_df is our final SP3 table 
+     return sp3_table_df, chromotogram_df, bubble_df, final_df.to_csv().encode('utf-8')
 
 
 # blue #0C1B2A
@@ -208,10 +209,10 @@ div.stButton > button:first-child {
 </style>""", unsafe_allow_html=True)
 
 if st.button('Create SP3 Table'):
-    sp3, chromotogram_df, bubble_df = create_sp3_table()
+    sp3, chromotogram_df, bubble_df, final_df = create_sp3_table()
     st.download_button(
      label="Download SP3 Table as CSV",
-     data=sp3,
+     data=final_df,
      file_name='sp3_table.csv',
      mime='text/csv',)
 
