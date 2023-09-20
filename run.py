@@ -209,7 +209,8 @@ div.stButton > button:first-child {
 </style>""", unsafe_allow_html=True)
 
 if st.button('Create SP3 Table'):
-    sp3, chromotogram_df, bubble_df, final_df = create_sp3_table()
+    # sp3, chromotogram_df, bubble_df, final_df = create_sp3_table()
+    sp3 = create_sp3_table()
     st.download_button(
      label="Download SP3 Table as CSV",
      data=final_df,
