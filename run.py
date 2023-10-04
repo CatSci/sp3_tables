@@ -459,15 +459,15 @@ def create_sp3_table():
         with open("output.xlsx", "rb") as file:
             st.download_button("Download Excel", file.read(), "output.xlsx", key="download")
 
-m = st.markdown("""
-<style>
-div.stButton > button:first-child {
-    background-color: #0C1B2A;
-    color:#ffffff;
-    border:None;
-}
+# m = st.markdown("""
+# <style>
+# div.stButton > button:first-child {
+#     background-color: #0C1B2A;
+#     color:#ffffff;
+#     border:None;
+# }
 
-</style>""", unsafe_allow_html=True)
+# </style>""", unsafe_allow_html=True)
 
 if st.button('Create SP3 Table'):
     create_sp3_table()
