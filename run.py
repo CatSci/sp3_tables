@@ -456,9 +456,9 @@ def filter_data(dataframe: pd.DataFrame, start_retention: float, last_retention:
         row = filtered_df.iloc[r]
         # st.write(row)
         if any(row[c] > area_threshold for c in columns if c not in ['RT', 'RRT']):
-            over_threshold_df = over_threshold_df.append(row)
+            over_threshold_df = pd.concat([over_threshold_df, pd.DataFrame([row])], ignore_index=True)
         else:
-            under_threshold_df = under_threshold_df.append(row)
+            under_threshold_df = pd.concat([under_threshold_df, pd.DataFrame([row])], ignore_index=True)
     # Drop rows in u_df that are also in f_df
     under_threshold_df = under_threshold_df[~under_threshold_df.apply(tuple, axis=1).isin(over_threshold_df.apply(tuple, axis=1))].reset_index(drop=True)
     
