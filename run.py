@@ -502,7 +502,8 @@ def create_sp3_table():
         under_threshold_df.to_excel(excel_writer, sheet_name="Under_Threshold", index=False)
 
         # Save and close the Excel writer
-        excel_writer.save()
+        # excel_writer.save()
+        excel_writer.close()
 
         # Create a download link for the generated Excel file
         st.markdown(f"**Download Excel File:**")
