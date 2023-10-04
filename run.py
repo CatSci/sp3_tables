@@ -495,7 +495,7 @@ def create_sp3_table():
         under_threshold_df.reset_index(inplace= True)
 
         # Create an Excel writer object
-        excel_writer = pd.ExcelWriter("output.xlsx", engine="xlsxwriter")
+        excel_writer = pd.ExcelWriter("output.xlsx", engine="openpyxl")
 
         # Write DataFrames to different sheets
         over_threshold_df.to_excel(excel_writer, sheet_name="Over_Threshold", index=False)
