@@ -477,14 +477,12 @@ def create_sp3_table():
         wb = openpyxl.load_workbook(uploaded_file)
         sheets = wb.sheetnames
 
-
         wb = openpyxl.load_workbook(uploaded_file)
         sheets = wb.sheetnames
         
         rt_list = read_rt(uploaded_file, sheets)
         rt_list.sort()
         SP3 = pd.DataFrame({'RT' : rt_list, 'RRT': np.nan})
-
 
         SP3 = fill_rrt(uploaded_file, sheets, df = SP3)
         SP3 = add_data(uploaded_file, sheets, dataframe = SP3)
@@ -512,7 +510,7 @@ def create_sp3_table():
             st.download_button("Download Excel", file.read(), "output.xlsx", key="download")
 
 
-
+st.write('testing')
 if st.button('Create SP3 Table'):
     create_sp3_table()
 
