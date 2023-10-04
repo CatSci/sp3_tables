@@ -511,7 +511,6 @@ def create_sp3_table():
             st.download_button("Download Excel", file.read(), "output.xlsx", key="download")
 
 
-st.write('testing')
 if st.button('Create SP3 Table'):
     create_sp3_table()
 
