@@ -198,6 +198,8 @@ def create_sp3_table():
 #     color:#ffffff;
 #     }
 
+# old code
+
 m = st.markdown("""
 <style>
 div.stButton > button:first-child {
