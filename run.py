@@ -100,12 +100,12 @@ def create_sp3_table():
         
         rt_list = read_rt(uploaded_file, sheets)
         rt_list.sort()
-        SP3 = pd.DataFrame({'RT' : rt_list, 'RRT': np.nan})
+        sp3_df = pd.DataFrame({'RT' : rt_list, 'RRT': np.nan})
 
-        SP3 = fill_rrt(uploaded_file, sheets, df = SP3)
-        SP3 = add_data(uploaded_file, sheets, dataframe = SP3)
+        sp3_df = fill_rrt(uploaded_file, sheets, df = sp3_df)
+        sp3_df = add_data(uploaded_file, sheets, dataframe = sp3_df)
 
-        over_threshold_df, under_threshold_df = filter_data(dataframe= SP3, start_retention= start_retention, last_retention= last_retention, area_threshold= area_threshold)
+        over_threshold_df, under_threshold_df = filter_data(dataframe= sp3_df, start_retention= start_retention, last_retention= last_retention, area_threshold= area_threshold)
 
         over_threshold_df = over_threshold_df.T
         over_threshold_df.reset_index(inplace=True)
@@ -120,7 +120,7 @@ def create_sp3_table():
             over_df = over_threshold_df
             under_df = under_threshold_df
         
-        # st.write(u_df)
+        
         # Create an Excel writer object
         excel_writer = pd.ExcelWriter("output.xlsx", engine="openpyxl")
 
